@@ -36,13 +36,3 @@ resource "aws_instance" "default_instance" {
     Name		= "default-instance"
   }
 }
-
-resource "aws_eip" "demo" {
-  vpc = true
-}
-
-
-resource "aws_eip_association" "eip_assoc" {
-  instance_id   = "${aws_instance.default_instance.id}"
-  public_ip = "${aws_eip.demo.public_ip}"
-}
